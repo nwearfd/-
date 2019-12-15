@@ -1,0 +1,228 @@
+@charset "UTF-8";
+/* 구글웹폰트 추가 */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+/* reset, common ========================================================== */
+body{font-family: 'Open Sans', sans-serif;}
+label, span{display: inline-block;}
+li{list-style: none;}
+a{text-decoration: none; display: inline-block; color:#000;}
+img{max-width: 100%;}
+.blind{font-size: 0; position: absolute; left:-9999px;}
+ 
+/* header ================================================================= */
+header{position: fixed; width: 100%; z-index: 1;}
+header .title{position: relative; height: 70px; background: #007042; z-index: 2;}
+header .title h1{text-align: center; line-height: 70px; color:#fff; font-size: 1.5em;}
+
+/* 메뉴버튼 */
+#btn-menu{display: none;}
+.btn-menu{position: absolute; top:20px; left:20px; width: 25px; height: 30px; z-index: 3;}
+.btn-menu span{
+    position: absolute;
+    top:4px; 
+    width: 25px; height: 2px;
+    background: #fff;
+    transform-origin: -2px 1px;
+}
+.btn-menu span:nth-child(2){top:50%; margin-top:-1px;}
+.btn-menu span:nth-child(3){bottom:4px;top:auto;}
+#btn-menu:checked+label span:nth-child(1){transform: rotate(45deg);}
+#btn-menu:checked+label span:nth-child(2){opacity: 0;}
+#btn-menu:checked+label span:nth-child(3){transform: rotate(-45deg);}
+
+/* 검색창 */
+form input{width: 180px; height: 30px; border:0; text-indent: 10px; float: left;}
+form button{
+    width: 30px; height: 30px; border:0; background: #007042; color:#fff;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+form button::after{content: '\f002';}
+
+/* 내비게이션 */
+nav{background: #2c2a29;}
+/* 1depth메뉴 */
+.gnb>li>a{position: relative; color:#eee; display: block; padding: 20px;}
+.gnb>li>a::after{font-family: "Font Awesome 5 Free"; font-weight: 900; content: '\f078'; position: absolute;
+    right:20px;}
+.gnb>li:hover>a{background: #000;}
+.gnb>li:hover>a::after{content: '\f2d1';}
+/* 2depth메뉴 */
+.gnb ul{height: 0; overflow: hidden; padding-left: 20px;}
+.gnb ul li a{display: block; line-height: 30px;}
+.gnb ul li a sup{font-size: 10px;}
+/* 1depth메뉴에 마우스를 올렸을 때 2depth메뉴의 높이 설정 */
+.gnb>li:nth-child(1):hover ul{height: 100px;}
+.gnb>li:nth-child(2):hover ul{height: 128px;}
+.gnb>li:nth-child(3):hover ul{height: 100px;}
+.gnb>li:nth-child(4):hover ul{height: 65px;}
+
+.util-nav li a{display: block; text-align: right; color:#a5a5a5; font-size: 0.8em; padding: 10px;}
+
+/* 멤버쉽 메뉴 */
+#btn-member{display: none;}
+.btn-member{font-family: "Font Awesome 5 Free"; /* 테두리만 있는 별 */ font-weight: 400; position: absolute;
+    top:20px; right:20px; color:#fff; font-size: 25px; z-index: 3;}
+.btn-member::after{content: '\f005';}
+/* 면색이 있는 별 */
+#btn-member:checked+label::after{font-weight: 900;}
+#btn-member:checked~.member-nav{height: 328px;}
+.member-nav{position: absolute; width: 100%; height: 0; overflow: hidden; background: #111; color:#fff;
+    transition: height 0.3s;}
+.member-nav .wrap{padding: 20px 0; margin: 0 20px;}
+.member-nav .wrap img{width: 85px;}
+.member-nav .wrap .box{padding: 0 10px;}
+.member-nav .wrap .box p{font-size: 12px;}
+.member-nav .wrap .box p strong{display: block;}
+.member-nav .wrap .box .btn-group{margin-top: 20px;}
+.member-nav .wrap .box .btn-group button{background: transparent; color:#fff; border: 1px solid #fff; padding: 10px;
+}
+.member-nav .wrap .box .btn-group button:hover{background: #fff; color:#111;}
+/* 첫번째 컬럼(이미지를 가지고 있는 컬럼)-이미지를 가운데 보내기 */
+.member-nav .wrap>div:nth-child(1){text-align: center;}
+/* 스타벅스카드영역 안에 있는 이미지만 선택(카드이미지선택) */
+.member-nav>div:nth-child(2) img{padding-top: 30px;}
+
+/* section================================================================= */
+/* 신제품 광고 */
+.main-ad{position: relative; background: #ebebca;}
+.main-ad .emblem{max-width: 300px; margin: auto; padding: 20px; text-align: center;}
+.main-ad .emblem a{display: inline-block; height: 34px; line-height: 34px; text-align: center;    color:#829816; border:2px solid #829816; border-radius: 3px; padding: 0 10px; margin-top: 20px;}
+.main-ad .emblem a:hover{background:#829816; color:#fff;}
+.main-ad .flavor{max-width: 500px; margin: auto; text-align: center;}
+.main-ad .flavor .flavor1-img{margin-left:-60px;}
+.main-ad .flavor .flavor1-text{padding: 20px;}
+
+/* 제품소개 */
+.product{background: url(../img/main2.jpg) no-repeat center fixed; background-size:cover;}
+.product .product-info{padding: 20px 0;}
+.product .product-info a{color:#fff; padding: 10px; border:2px solid #fff; border-radius: 3px;}
+.product .product-info .row>div:nth-child(1){text-align: right;}
+.product .product-info .row>div:nth-child(1)>*{margin-right: 20px;}
+.product .product-info .row>div:nth-child(2){padding: 20px 0;}
+
+.product .product-gallery{background: rgba(255,255,255,0.2); padding: 5px;}
+.product .product-gallery h2{text-align: center; color:#fff; padding: 20px 0 10px;}
+.product .product-gallery .wrap{position: relative; margin: 5px; overflow: hidden;}
+.product .product-gallery .wrap img{width: 100%; display: block;}
+.product .product-gallery .wrap a{position: absolute; width: 100%; bottom:-54px; background: rgba(0,0,0,0.8); color:#fff; font-size: 12px; /* 오른쪽 25px은 아이콘의 영역을 잡는 것임 */ padding: 10px 25px 10px 10px; box-sizing: border-box; transition: 0.2s;}
+.product .product-gallery .wrap:hover a{bottom:0;}
+.product .product-gallery .wrap a dl dt,
+.product .product-gallery .wrap a dl dd{/* 글자가 길어질경우 ...으로 생략처리하는 패턴 */ text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.product .product-gallery .wrap a i{position: absolute; right:10px; bottom:20px; color:#fff;}
+.product .product-gallery .wrap a i::after{content: '\f054';}
+
+/* 리저브 커피 */
+.reserve{position: relative; background: url(../img/main3.jpg) no-repeat center fixed; background-size:cover;}
+.reserve h2{text-align: center; color:#fff; padding-top: 20px; font-size: 2em; text-shadow: 0 0 10px #fff;}
+.reserve h2 sup{font-size: 0.5em;}
+.reserve .reserve-info{padding: 20px 0;}
+.reserve .reserve-info ul li{text-align: center;}
+.reserve .reserve-info ul li .wrap{margin: 20px;}
+.reserve .reserve-info ul li .wrap span{display: block; color:#fff; text-transform: uppercase;}
+
+.reserve .reserve-store{position: relative; height: 400px;}
+.reserve .reserve-store .rotate{position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); width: 34px; height: 334px;}
+.reserve .reserve-store .rotate img{max-width: initial;}
+.reserve .reserve-store .rotate > *{position: absolute;top:50%; left:50%; /* 뒤집어졌을 경우에 숨기기 */ backface-visibility: hidden; transition: 0.5s;}
+
+.reserve .reserve-store .rotate .front{transform: translate(-50%, -50%) rotateY(0deg);}
+.reserve .reserve-store .rotate .back{transform: translate(-50%, -50%) rotateY(180deg);}
+.reserve .reserve-store .rotate:hover .front{transform: translate(-50%, -50%) rotateY(180deg);}
+.reserve .reserve-store .rotate:hover .back{transform: translate(-50%, -50%) rotateY(0deg);}
+.reserve .reserve-store .rotate .back a{position: absolute; left:50%; transform: translateX(-50%);bottom:50px;
+    border:1px solid #a26e49; color:#a26e49; padding: 10px 20px; border-radius: 3px; transition: 0.2s;}
+.reserve .reserve-store .rotate .back a:hover{background: #a26e49; color:#fff;}
+
+/* footer ===========================*/
+footer{background: #282828; color:#fff; text-align: center; padding: 20px 0; font-size: 0.8em;}
+footer .info{padding: 20px 0;}
+#btn-banner{display: none;}
+
+/* 미디어쿼리 ============================================================= */
+/* 모바일 */
+@media (max-width:767px){
+    .btn-menu *, nav, nav *{transition: 0.5s;}
+    nav{position: fixed; top:0; width: 250px; height: 100%; background: #2c2a29; left:-250px;}
+    #btn-menu:checked ~ nav{left:0;}
+    #btn-menu:checked ~ nav::after{content: ''; position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); /* 겹쳐있을 경우 우선권이 제일 낮음 */ z-index: -1;}
+
+    form{padding: 90px 20px 20px; border-bottom:1px solid #3e3e3e;}
+
+    /* transparent 투명한 색 */
+    /* 마우스를 올렸을때만 테두리를 넣게되면 높이가 변하는 현상이 발생되므로 
+       안올렸을 때도 테두리를 가지게 한다. */
+    .gnb ul li a{color:#aaa; border:1px solid transparent;}
+    .gnb ul li a:hover{border-bottom:1px solid #fff;}
+
+    /* 멤버쉽메뉴 */
+    .member-nav>div:nth-child(1)
+    .wrap{border-bottom:1px solid #fff;}
+    .member-nav .wrap{max-width: 350px; margin: auto;}
+
+    /* section */
+    /* header의 높이가 70px이므로 section전체를 70px밀어준다. */
+    section{padding-top: 70px;}
+
+    /* footer */
+    footer .banner{position: relative; height: 70px;}
+    footer .banner .wrap{max-width: 400px; margin: auto; overflow: hidden;}
+    footer .banner .wrap label{position: absolute; bottom:0;}
+    /* 일시정지 아이콘 */
+    footer .banner .wrap label::after{content: '\f04c';}
+    footer .banner .wrap ul{/* 8개의 리스트를 가지고 있는 부모 */ /* 배너하나의 넓이 * 배너의 개수(눈속임용 포함)8 = 총 리스트의 폭 */ width: 1512px; animation: banner 10s linear infinite;}
+    footer .banner .wrap ul li{float: left; width: 189px;}
+    /* 재생 아이콘 */
+    #btn-banner:checked + label::after{content: '\f04b';}
+    /* 체크박스가 체크되면 애니메이션이 일시정지된다. */
+    #btn-banner:checked ~ ul{animation-play-state: paused;}
+
+    @keyframes banner {0%{margin-left:0;} /* 배너하나의 넓이 * 실제보여줄 배너의 개수(6) */100%{margin-left:-1134px;}
+        
+    }
+
+}
+
+/* 태블릿 이상일때 */
+@media (min-width:768px){
+    header .title{background: #f6f5ef; padding: 20px; /* 높이, z-index 초기화 */ height: auto; z-index: initial;}
+    header .title h1{text-align: left; color:#007042;}
+    header .title h1::before{content: ''; display: inline-block; background: url(../img/logo.png) no-repeat;
+        width: 75px; height: 75px; padding-right: 10px; vertical-align: middle;}
+    .btn-menu{display: none;}
+
+    form{position: absolute; left:50%; transform: translateX(-50%); top:40px;}
+    form input{background: #007042; color:#fff;}
+
+    .gnb *{transition: height 0.5s;}
+    .gnb>li{float: left; width: 25%;}
+    .gnb>li>a{background: #007042;}
+    .gnb ul{background: #f6f5ef;}
+    .gnb ul li a{color:#000;}
+    .gnb ul li a:hover{color:#007042;}
+
+    .util-nav{position: absolute; right:0; top:0;}
+    .util-nav li{float: left;}
+
+    /* 멤버쉽메뉴 */
+    .btn-member{top:45px; color:#007042;}
+    .member-nav>div{box-sizing: border-box;}
+    .member-nav>div:nth-child(1){border-right:1px solid #fff;}
+    #btn-member:checked ~ .member-nav{height: 175px;}
+
+    /* section */
+    /* header의 높이가 177px이므로 section전체를 177px밀어준다. */
+    section{padding-top: 177px;}
+    .main-ad .row{position: relative; width: 700px; margin: auto; height: 400px;} 
+    .main-ad .emblem{margin: 0; text-align: left;}
+    .main-ad .flavor{position: absolute; top:-50px; right:0;}
+    .main-ad .flavor1-text{position: absolute; bottom:0; right:250px;}
+
+    /* footer */
+    footer .banner .wrap{max-width: 800px; margin: auto;}
+    footer .banner label{display: none;}
+    footer .banner .wrap ul{overflow: hidden;}
+    footer .banner .wrap ul li{float: left; width: 33.33%;}
+    footer .banner .wrap ul li:nth-child(6)~li{display: none;}
+}
